@@ -10,6 +10,7 @@ d = {
 }
 cnt = 0
 answer = -1
+
 for i in range(n):
     dir, dist = input().split()
     dir_num, dist = d[dir], int(dist)
@@ -22,5 +23,8 @@ for i in range(n):
         if x == 0 and y == 0:
             answer = cnt
             break
+            
+    if x == 0 and y == 0:
+        break
 
 print(answer)
