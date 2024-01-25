@@ -3,7 +3,7 @@ arr = [0] * n
 
 for i in range(n):
     elem = int(input())
-    arr[n-i-1] = elem
+    arr[i] = elem
 
 end_of_array = n
 BLANK = 0
@@ -12,7 +12,7 @@ for _ in range(2):
     s, e = map(int, input().split())
     end_of_temp_array = 0
     temp = [0] * n
-    for i in range(s, e+1):
+    for i in range(s-1, e):
         arr[i] = 0
     
     for i in range(end_of_array):
