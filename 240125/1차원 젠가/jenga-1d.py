@@ -26,6 +26,6 @@ for _ in range(2):
     end_of_array = end_of_temp_array
     
 print(end_of_array)
-for i in range(n-1, -1, -1):
-    if arr[i] != 0:
-        print(arr[i])
+for elem in arr:
+    if elem != 0:
+        print(elem)
