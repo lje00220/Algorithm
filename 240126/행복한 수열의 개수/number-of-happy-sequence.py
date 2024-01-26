@@ -13,8 +13,10 @@ for row in range(n):
         else:
             standard = arr[row][col]
             cnt = 1
-    if cnt >= m:
-        result += 1
+        if cnt >= m:
+            result += 1
+            break
+
         
 for col in range(n):
     cnt = 0
@@ -25,8 +27,9 @@ for col in range(n):
         else:
             standard = arr[row][col]
             cnt = 1
-    
-    if cnt >= m:
-        result += 1
+        if cnt >= m:
+            result += 1
+            break
+        
 
 print(result)
