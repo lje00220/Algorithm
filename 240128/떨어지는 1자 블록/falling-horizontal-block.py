@@ -16,7 +16,7 @@ for col in range(k-1, k+m-1): # 0열 ~ 2행
         min_num = cnt
 
 # 블럭 채우기
-for col in range(0, m):
+for col in range(k-1, k+m-1):
     for row in range(min_num-1, min_num):
         arr[row][col] = 1
 
