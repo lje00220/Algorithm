@@ -22,11 +22,9 @@ def move(x, y):
     arr[next_x][next_y] = temp
     arr[x][y] = max_num
 
-
-
         
 for _ in range(m):
-    for i in range(1, 17):
+    for i in range(1, n*n+1):
         cnt = 0   
         for row in range(n):
             for col in range(n):
