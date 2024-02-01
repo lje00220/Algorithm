@@ -32,7 +32,7 @@ def dfs(x, y):
 visited[0][0] = 1
 dfs(0, 0)
 
-if answer[m-1][n-1] == 1:
+if answer[n-1][m-1] == 1:
     print(1)
 else:
     print(0)
