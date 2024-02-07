@@ -7,7 +7,7 @@ dy = [1, 0, -1, 0]
 x, y = 0, 0
 
 arr[x][y] = 1
-dir_num = 2
+dir_num = 1
 
 def in_range(x, y):
     return 0 <= x < n and 0 <= y < m
