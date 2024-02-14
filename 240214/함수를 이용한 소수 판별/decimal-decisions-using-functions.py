@@ -8,6 +8,8 @@ def is_prime(n):
         
 ans = 0
 for i in range(a, b+1):
+    if i == 1:
+        continue
     if is_prime(i):
         ans += i
 
