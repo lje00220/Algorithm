@@ -7,7 +7,7 @@ let third = Number(input[2]);
 
 let resA, resB
 
-if (first == second && first == third) {
+if (first <= second && first <= third) {
     resA = 1;
 } else {
     resA = 0;
