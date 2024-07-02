@@ -6,14 +6,14 @@ let c = Number(input[2]);
 let satisfied = true;
 
 for (let i = a; i <= b; i++) {
-    if (c % i === 0) {
+    if (i % c === 0) {
         satisfied = false;
         break;
     }
 }
 
-if (satisfied) {
-    console.log("NO");
-} else {
+if (satisfied === true) {
     console.log("YES");
+} else {
+    console.log("NO");
 }
