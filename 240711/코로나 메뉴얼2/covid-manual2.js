@@ -1,6 +1,6 @@
 const fs = require("fs");
 let input = fs.readFileSync(0).toString().trim().split("\n");
-let countArr = Array(5).fill(0);
+let countArr = Array(4).fill(0);
 
 for (let i = 0; i < 3; i++) {
     let person = input[i].split(" ");
@@ -23,7 +23,7 @@ for (let i = 0; i < 3; i++) {
 }
 
 if (countArr[0] >= 2) {
-    countArr[4] = "E";
+    countArr.push("E");
 }
 
 console.log(countArr.join(" "));
