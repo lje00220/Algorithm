@@ -1,5 +1,5 @@
 const fs = require("fs");
-let input = fs.readFileSync(0).toString().split("\n");
+let input = fs.readFileSync(0).toString().trim().split("\n");
 let arr = input[1].split(" ").map(Number);
 let result = [];
 
