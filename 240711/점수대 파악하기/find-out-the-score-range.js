@@ -1,0 +1,14 @@
+const fs = require("fs");
+let input = fs.readFileSync(0).toString().trim().split(" ").map(Number);
+let countArr = Array(11).fill(0);
+
+let i = 0;
+while (true) {
+    if (input[i] === 0) break;
+    countArr[parseInt(input[i] / 10)]++;
+    i++;
+}
+
+for (let j = 10; j > 0 ; j--) {
+    console.log(`${j * 10} - ${countArr[j]}`);
+}
