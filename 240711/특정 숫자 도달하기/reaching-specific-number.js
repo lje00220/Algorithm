@@ -5,7 +5,7 @@ let sumVal = 0;
 let cnt = 0;
 
 for (i of arr) {
-    if (i >= 260) break;
+    if (i >= 250) break;
     sumVal += i;
     cnt++;
 }
