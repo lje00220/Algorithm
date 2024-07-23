@@ -5,7 +5,7 @@ let c = input[n + 1];
 
 let cnt = 0;
 let sum_val = 0;
-for (let i = 1; i < n; i++) {
+for (let i = 1; i <= n; i++) {
     if (input[i][0] === c) {
         sum_val += input[i].length;
         cnt++;
