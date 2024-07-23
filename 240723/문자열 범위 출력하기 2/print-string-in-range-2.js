@@ -6,6 +6,7 @@ let len = str.length;
 
 let result = "";
 for (let i = len - 1; i >= len - n; i--) {
+    if (!str[i]) break;
     result += str[i];
 }
 
