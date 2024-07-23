@@ -16,5 +16,7 @@ for (let i = 0; i < str.length; i++) {
     }
 }
 
-console.log(result.length + 1);
-console.log(result + cnt);
+result += cnt;
+
+console.log(result.length);
+console.log(result);
