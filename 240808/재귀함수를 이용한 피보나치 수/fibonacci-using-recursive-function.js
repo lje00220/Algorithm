@@ -1,0 +1,10 @@
+const fs = require("fs");
+let n = Number(fs.readFileSync(0).toString().trim());
+
+function fib(n) {
+    if (n === 1) return 1;
+    if (n === 2) return 1;
+    return fib(n - 1) + fib(n - 2);
+}
+
+console.log(fib(n));
