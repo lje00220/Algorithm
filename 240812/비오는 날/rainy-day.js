@@ -25,16 +25,20 @@ for (let i = 0 ; i < n; i++) {
 }
 
 let idx = 0;
-let [year, month, dayy] = rainyWeathers[0].date.split("-");
+let [year, month, dayy] = rainyWeathers[0].date.split("-").map(Number);
 for (let i = 0; i < rainyWeathers.length; i++) {
-    if (year > rainyWeathers[i].date.split("-")[0]) {
+    let [curYear, curMonth, curDay] = rainyWeathers[i].date.split("-").map(Number);
+    if (year > curYear) {
         idx = i;
-    } else if (year === rainyWeathers[i].date.split("-")[0]) {
-        if (month > rainyWeathers[i].date.split("-")[1]) {
+        [year, month, dayy] = [curYear, curMonth, curDay];
+    } else if (year === curYear) {
+        if (month > curMonth) {
             idx = i;
-        } else if (month == rainyWeathers[i].date.split("-")[1]) {
-            if (dayy > rainyWeathers[i].date.split("-")[2]) {
+            [year, month, dayy] = [curYear, curMonth, curDay];
+        } else if (month == curMonth) {
+            if (dayy > curDay) {
                 idx = i;
+                [year, month, dayy] = [curYear, curMonth, curDay];
             }
         }
     }
