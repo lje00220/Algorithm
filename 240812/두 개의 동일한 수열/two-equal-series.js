@@ -1,8 +1,8 @@
 const fs = require("fs");
 let input = fs.readFileSync(0).toString().trim().split("\n");
 let n = Number(input[0]);
-let arrA = input[1].split(" ").map(Number);
-let arrB = input[2].split(" ").map(Number);
+let arrA = input[1].trim().split(" ").map(Number);
+let arrB = input[2].trim().split(" ").map(Number);
 
 arrA.sort((prev, cur) => prev - cur);
 arrB.sort((prev, cur) => prev - cur);
