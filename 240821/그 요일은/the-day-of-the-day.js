@@ -18,7 +18,7 @@ function totalDay(m, d) {
 }   
 
 let diffs = totalDay(m2, d2) - totalDay(m1, d1);
-const DAYS = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Wed'];
+const DAYS = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
 
 let index = DAYS.indexOf(day);
 
