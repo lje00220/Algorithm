@@ -22,7 +22,7 @@ const DAYS = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Wed'];
 
 let index = DAYS.indexOf(day);
 
-if (diffs % 7 <= index) {
+if (diffs % 7 >= index) {
     console.log(parseInt(diffs / 7) + 1);
 } else {
     console.log(parseInt(diffs / 7));
