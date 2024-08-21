@@ -1,7 +1,7 @@
 const fs = require("fs");
 let input = fs.readFileSync(0).toString().trim().split("\n");
 
-let [m1, d1, m2, d2] = input[0].split(" ").map(Number);
+let [m1, d1, m2, d2] = input[0].trim().split(" ").map(Number);
 let day = input[1];
 
 function totalDay(m, d) {
