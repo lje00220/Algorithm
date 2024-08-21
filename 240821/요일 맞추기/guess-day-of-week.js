@@ -25,6 +25,6 @@ if (m1 === m2) {
     for (let i = m2; i < m1; i++) {
         diffs += DAY_OF_MONTHS[i];
     }
-    diffs = diffs + d2 - d1;
+    diffs = diffs + d1 - d2;
     console.log(DAYS[(diffs - 3) % 7]);
 }
