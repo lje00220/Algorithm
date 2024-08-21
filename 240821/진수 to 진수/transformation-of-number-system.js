@@ -16,8 +16,8 @@ while (true) {
         break;
     }
 
-    result.push(num % 2);
-    num = Math.floor(num / 2);
+    result.push(num % b);
+    num = Math.floor(num / b);
 }
 
 for (let i = result.length - 1; i >= 0; i--) {
