@@ -35,5 +35,8 @@ for (let i = 0; i < MAX; i++) {
 // console.log(maxX, maxY);
 // console.log(minX, minY);
 
+if (minX === MAX) minX = 0;
+if (minY === MAX) minY = 0;
+
 let area = (maxX - minX) * (maxY - minY);
 console.log(area);
