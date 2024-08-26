@@ -11,7 +11,7 @@ for (let i = 1; i <= n; i++) {
 let cnt = 1;
 let maxCnt = 1;
 
-for (let i = 1; i < n; i++) {
+for (let i = 1; i <= n; i++) {
     maxCnt = Math.max(maxCnt, cnt);
 
     if (arr[i] === arr[i - 1]) {
