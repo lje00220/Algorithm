@@ -22,12 +22,17 @@ for (let i = n + 1; i < input.length; i++) {
     }
 }
 
+let first = arrA[0] > arrB[0] ? "A" : arrA[0] === arrB[0] ? "Both" : "B"
 let cnt = 0;
 for (let i = 1; i < arrA.length; i++) {
-    if (arrA[i - 1] >= arrB[i - 1] && arrA[i] < arrB[i]) {
+    if (first === "A" && arrA[i] < arrB[i]) {
         cnt++;
-    } else if (arrA[i - 1] <= arrB[i - 1] && arrA[i] > arrB[i]) {
+        first = "B";
+    } else if (first === "B" && arrA[i] > arrB[i]) {
         cnt++;
+        first = "A";
+    } else if (first === "Both") {
+        first = arrA[i] > arrB[i] ? "A" : arrA[0] === arrB[0] ? "Both" : "B"
     }
 }
 
