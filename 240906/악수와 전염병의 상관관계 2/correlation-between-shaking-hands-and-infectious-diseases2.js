@@ -14,13 +14,10 @@ let arr = [];
 disease[p] = 1;
 
 for (let i = 1; i <= t; i++) {
-    let [time, x, y] = input[i].trim().split(" ").map(Number);
-    tempArr[time] = [time, x, y];
+    arr.push(input[i].trim().split(" ").map(Number));
 }
 
-for (let elem of tempArr) {
-    if (elem !== 0) arr.push(elem);
-}
+arr.sort((a, b) => a[0] - b[0]);
 
 for (let i = 0; i < arr.length; i++) {
     let [time, x, y] = arr[i];
