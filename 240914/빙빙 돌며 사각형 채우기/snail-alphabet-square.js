@@ -17,7 +17,11 @@ for (let i = 1; i < n * m; i++) {
     }
 
     x += dx[dirNum], y += dy[dirNum];
-    arr[x][y] = String.fromCharCode(char.charCodeAt(0) + i);
+    char = String.fromCharCode(char.charCodeAt(0) + 1);
+    if (char > "Z") {
+        char = "A";
+    }
+    arr[x][y] = char;
 }
 
 for (let i = 0; i < n; i++) {
