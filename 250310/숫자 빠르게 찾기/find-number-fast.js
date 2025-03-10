@@ -9,10 +9,6 @@ const result = [];
 
 for (let i = 0; i < queries.length; i++) {
     let [left, right] = [0, n - 1];
-    if (!numbers.includes(queries[i])) {
-        result.push(-1);
-        continue;
-    }
     while (left <= right) {
         const mid = Math.floor((left + right) / 2);
         if (numbers[mid] == queries[i]) {
@@ -25,6 +21,10 @@ for (let i = 0; i < queries.length; i++) {
             left = mid + 1;
         }
     }
+    if (result.length !== i + 1) {
+        result.push(-1);
+    }
+
 }
 
 console.log(result.join("\n"))
