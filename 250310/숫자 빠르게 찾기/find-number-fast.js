@@ -8,11 +8,22 @@ const queries = input.slice(2, 2 + m).map(Number);
 const result = [];
 
 for (let i = 0; i < queries.length; i++) {
-    const idx = numbers.indexOf(queries[i]);
-    if (idx < 0) {
+    let [left, right] = [0, n - 1];
+    if (!numbers.includes(queries[i])) {
         result.push(-1);
-    } else {
-        result.push(idx + 1);
+        continue;
+    }
+    while (left <= right) {
+        const mid = Math.floor((left + right) / 2);
+        if (numbers[mid] == queries[i]) {
+            result.push(mid + 1);
+            break;
+        }
+        if (numbers[mid] > queries[i]) {
+            right = mid - 1;
+        } else {
+            left = mid + 1;
+        }
     }
 }
 
