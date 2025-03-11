@@ -16,13 +16,9 @@ const lower_bound = (target) => {
             left = mid + 1;
         }
     }
-    return min_idx;
+    return (min_idx < N && arr[min_idx] === target) ? min_idx + 1 : -1;
 }
 
 for (let i = 0; i < M; i++) {
-    if (!arr.includes(queries[i])) {
-        console.log(-1);
-    } else {
-    console.log(lower_bound(queries[i]) + 1);
-    }
+    console.log(lower_bound(queries[i]));
 }
