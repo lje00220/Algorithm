@@ -1,5 +1,6 @@
-function solution(s) {
-    const cntP = Array.from(s.toUpperCase()).filter((x) => x === "P").length;
-    const cntY = Array.from(s.toUpperCase()).filter((y) => y === "Y").length;
-    return cntP === cntY ? true : false;
+function solution(s){
+    const cntP = s.toLowerCase().split("").filter((x) => x === "p").length;
+    const cntY = s.toLowerCase().split("").filter((x) => x === "y").length;
+    
+    return cntP === cntY;
 }
