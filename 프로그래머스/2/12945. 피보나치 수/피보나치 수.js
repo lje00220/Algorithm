@@ -1,8 +1,12 @@
 function solution(n) {
-    const arr = [0, 1];
-    for (let i = 2; i <= n; i++) {
-        arr.push(arr[i - 1] % 1234567 + arr[i - 2] % 1234567);
+    let answer = 0;
+    let [f0, f1] = [0, 1];
+    
+    for(let i = 2; i <= n; i++){
+        answer = (f0 + f1) % 1234567;
+        f0 = f1;
+        f1 = answer;
     }
-    const answer = arr[arr.length - 1] % 1234567;
+    
     return answer;
 }
