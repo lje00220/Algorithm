@@ -1,11 +1,8 @@
 function solution(n) {
-    let answer = n + 1;
-    const binaryN = n.toString(2).replaceAll("0", "").length;
+    const numOne = n.toString(2).split("").filter((x) => x === "1").length;
     while(true) {
-        let binaryTemp = answer.toString(2).replaceAll("0", "").length;
-        if (binaryTemp === binaryN) {
-            return answer;
-        }
-        answer++;
+        n++;
+        const cnt0 = n.toString(2).split("").filter((x) => x === "1").length;
+        if (cnt0 === numOne) return n;
     }
 }
