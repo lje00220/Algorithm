@@ -1,11 +1,11 @@
 function solution(s) {
-    const result = s.split("").reduce((acc, cur, idx) => {
-        if (acc[acc.length - 1] !== cur) {
-            acc.push(cur);
+    const stack = [];
+    for (let i = 0; i < s.length; i++) {
+        if (stack.length === 0 || stack[stack.length - 1] !== s[i]) {
+            stack.push(s[i]);
         } else {
-            acc.pop();
+            stack.pop();
         }
-        return acc;
-    }, []);
-    return result.length === 0 ? 1 : 0;
+    }
+    return stack.length === 0 ? 1 : 0;
 }
