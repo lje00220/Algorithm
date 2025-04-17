@@ -1,12 +1,11 @@
 function solution(number) {
-    let answer = 0;
-    const len = number.length;
-    for (let i = 0; i < len; i++) {
-        for (let j = i + 1; j < len; j++) {
-            for (let l = j + 1; l < len; l++) {
-                if (number[i] + number[j] + number[l] === 0) answer++;
+    let cnt = 0;
+    for (let i = 0; i < number.length; i++) {
+        for (let j = i + 1; j < number.length; j++ ) {
+            for (let z = j + 1; z < number.length; z++) {
+                if (number[i] + number[j] + number[z] === 0) cnt++;
             }
         }
     }
-    return answer;
+    return cnt;
 }
