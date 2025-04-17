@@ -1,9 +1,11 @@
 function solution(arr1, arr2) {
-    var answer = arr1;
+    const result = [];
     for (let i = 0; i < arr1.length; i++) {
-        arr1[i].forEach((elem, idx) => {
-            answer[i][idx] = elem + arr2[i][idx];
-        });
+        const temp = [];
+        for (let j = 0; j < arr1[0].length; j++) {
+            temp.push(arr1[i][j] + arr2[i][j]);
+        }
+        result.push(temp);
     }
-    return answer;
+    return result;
 }
