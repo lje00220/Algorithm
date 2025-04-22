@@ -1,15 +1,18 @@
 function solution(s) {
     let answer = [];
-    s = s.split("");
+    let lastSeen = {}; 
+
     for (let i = 0; i < s.length; i++) {
-        let tempArr = s.slice(0, i);
-        let idx = tempArr.indexOf(s[i]);
-        if (idx === -1) {
-            answer.push(idx);
-            continue;
+        const char = s[i];
+
+        if (lastSeen[char] === undefined) {
+            answer.push(-1);
+        } else {
+            answer.push(i - lastSeen[char]);
         }
-        answer.push(i - idx);
-        s[idx] = 0;
+
+        lastSeen[char] = i; 
     }
+
     return answer;
 }
