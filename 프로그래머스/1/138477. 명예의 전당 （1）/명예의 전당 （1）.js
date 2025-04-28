@@ -1,21 +1,17 @@
 function solution(k, score) {
-    var answer = [];
-    let rank = [];
-    let len = k > score.length ? score.length : k;
-    for (let i = 0; i < len; i++) {
-        if (i <= score.length) {
-            rank.push(score[i]);
-            answer.push(Math.min(...rank));   
-        } else {
-            answer.push(Math.min(...rank));  
-        }
+  let answer = [];
+  let honor = []; 
+  
+  for (let i = 0; i < score.length; i++) {
+    honor.push(score[i]);
+    honor.sort((a, b) => b - a);
+    
+    if (honor.length > k) {
+      honor.pop(); 
     }
     
-    for (let i = k; i < score.length; i++) {
-        rank.sort((a, b) => a - b);
-        if (score[i] > rank[0]) rank[0] = score[i];
-        answer.push(Math.min(...rank));
-    }
-
-    return answer;
+    answer.push(honor[honor.length - 1]); 
+  }
+  
+  return answer;
 }
