@@ -1,15 +1,16 @@
 function solution(cards1, cards2, goal) {
-    let answer = "Yes";
-    // let isSatisfied = true;
-    for (let i = 0; i < goal.length; i++) {
-        if (cards1[0] === goal[i]) {
-            cards1.shift();
-        } else if (cards2[0] === goal[i]) {
-            cards2.shift();
-        } else {
-            answer = "No";
-            break;
-        }
+  let index1 = 0;
+  let index2 = 0;
+
+  for (let word of goal) {
+    if (cards1[index1] === word) {
+      index1++;
+    } else if (cards2[index2] === word) {
+      index2++;
+    } else {
+      return "No";
     }
-    return answer;
+  }
+
+  return "Yes";
 }
