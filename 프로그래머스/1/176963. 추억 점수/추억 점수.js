@@ -1,14 +1,23 @@
 function solution(name, yearning, photo) {
-    const result = [];
-    for (let arr of photo) {
-        let score = 0;
-        for (let i = 0; i < arr.length; i++) {
-            if (name.includes(arr[i])) {
-                score += yearning[name.indexOf(arr[i])];
-                console.log(arr[i]);
-            }
-        }
-        result.push(score);
+  const scoreMap = {}; 
+
+  for (let i = 0; i < name.length; i++) {
+    scoreMap[name[i]] = yearning[i];
+  }
+
+  const answer = [];
+
+  for (let people of photo) {
+    let sum = 0;
+
+    for (let person of people) {
+      if (scoreMap[person]) {
+        sum += scoreMap[person];
+      }
     }
-    return result;
+
+    answer.push(sum);
+  }
+
+  return answer;
 }
