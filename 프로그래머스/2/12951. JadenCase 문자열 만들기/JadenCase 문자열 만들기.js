@@ -1,9 +1,13 @@
 function solution(s) {
+    const answer = [];
     const arr = s.split(" ");
-    const result = [];
     for (let i = 0; i < arr.length; i++) {
-        const temp = arr[i].split("").map((x, idx) => idx === 0 ? x.toUpperCase() : x.toLowerCase()).join("");
-        result.push(temp);
+        if (arr[i].length === 0) {
+            answer.push(arr[i]);
+        } else {
+            answer.push(arr[i][0].toUpperCase() + arr[i].slice(1).toLowerCase());     
+        }
+        
     }
-    return result.join(" ");
+    return answer.join(" ");
 }
