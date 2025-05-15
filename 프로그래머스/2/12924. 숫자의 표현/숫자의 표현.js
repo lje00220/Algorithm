@@ -1,15 +1,15 @@
 function solution(n) {
-    let cnt = 0;
+    let answer = 0;
     for (let i = 1; i <= n; i++) {
-        let sumVal = i;
-        for (let j = i + 1; j <= n + 1; j++) {
-            if (sumVal === n) {
-                cnt++;
+        let sum = 0;
+        for (let j = i; j <= n; j++) {
+            sum += j;
+            if (sum > n) break;
+            if (sum === n) {
+                answer++;
                 break;
             }
-            if (sumVal > n) break;
-            sumVal += j;
         }
     }
-    return cnt;
+    return answer;
 }
