@@ -1,8 +1,12 @@
 function solution(citations) {
-    let answer = 0;
-    for (let i = 0; i <= Math.max(...citations); i++) {
-        const temp = citations.filter((x) => x >= i)
-        if (temp.length >= i) answer = i;
+    const answer = [];
+    citations = citations.sort((a, b) => a - b);
+    for (let i = 0; i <= citations[citations.length - 1]; i++) {
+        let cnt = 0;
+        for (let j = 0; j < citations.length; j++) {
+            if (citations[j] >= i) cnt++;
+        }
+        if (cnt >= i) answer.push(i);
     }
-    return answer;
+    return Math.max(...answer);
 }
