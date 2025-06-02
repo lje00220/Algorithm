@@ -1,17 +1,14 @@
 function solution(people, limit) {
-  people.sort((a, b) => a - b);
-
-  let start = 0;
-  let end = people.length - 1;
-  let boats = 0;
-
-  while (start <= end) {
-    if (people[start] + people[end] <= limit) {
-      start++;
+    let answer = 0;
+    people.sort((a, b) => a - b);
+    while (people.length > 0) {
+        if (people[0] + people[people.length - 1] <= limit) {
+            people.pop();
+            people.shift();
+        } else {
+            people.pop();
+        }
+        answer++;
     }
-    end--;
-    boats++;
-  }
-
-  return boats;
+    return answer;
 }
