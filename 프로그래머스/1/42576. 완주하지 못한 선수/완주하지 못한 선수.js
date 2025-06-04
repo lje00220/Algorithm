@@ -1,18 +1,13 @@
 function solution(participant, completion) {
     const map = new Map();
     for (let i = 0; i < participant.length; i++) {
-        if (!map.has(participant[i])) {
-            map.set(participant[i], 1);
-        } else {
-            map.set(participant[i], map.get(participant[i]) + 1);
-        }
+        map.set(participant[i], (map.get(participant[i]) || 0) + 1);
     }
     
     for (let i = 0; i < completion.length; i++) {
-        if (map.has(completion[i])) map.set(completion[i], map.get(completion[i]) - 1);
+        const person = completion[i];
+        map.set(person, map.get(person) - 1);
+        if (map.get(person) === 0) map.delete(person);
     }
-    
-    for (let [key, value] of map.entries()) {
-        if (value === 1) return key
-    }
+    return [...map.keys()][0]
 }
