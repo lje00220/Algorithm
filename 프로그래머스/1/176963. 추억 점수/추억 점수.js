@@ -1,23 +1,11 @@
 function solution(name, yearning, photo) {
-  const scoreMap = {}; 
-
-  for (let i = 0; i < name.length; i++) {
-    scoreMap[name[i]] = yearning[i];
-  }
-
-  const answer = [];
-
-  for (let people of photo) {
-    let sum = 0;
-
-    for (let person of people) {
-      if (scoreMap[person]) {
-        sum += scoreMap[person];
-      }
+    let answer = [];
+    const map = new Map();
+    for (let i = 0; i < name.length; i++) {
+        map.set(name[i], yearning[i]);
     }
-
-    answer.push(sum);
-  }
-
-  return answer;
+    for (let arr of photo) {
+        answer.push(arr.reduce((acc, cur) => acc += map.has(cur) ? map.get(cur) : 0, 0))
+    }
+    return answer;
 }
