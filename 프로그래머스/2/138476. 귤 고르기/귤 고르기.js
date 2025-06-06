@@ -1,20 +1,18 @@
 function solution(k, tangerine) {
-  const sizeCount = new Map();
-
-  for (const size of tangerine) {
-    sizeCount.set(size, (sizeCount.get(size) || 0) + 1);
-  }
-
-  const sortedCounts = Array.from(sizeCount.values()).sort((a, b) => b - a);
-
-  let total = 0; 
-  let kinds = 0; 
-
-  for (const count of sortedCounts) {
-    total += count;
-    kinds += 1;
-    if (total >= k) break;
-  }
-
-  return kinds;
+    let answer = 0;
+    const map = new Map();
+    for (let i = 0; i < tangerine.length; i++) {
+        map.set(tangerine[i], (map.get(tangerine[i]) ?? 0) + 1);
+    }
+    
+    const newArr = [...map.values()].sort((a, b) => b - a);
+    for (let i = 0; i < newArr.length; i++) {
+        if (k > 0) {
+            answer++;
+            k -= newArr[i];
+        } else {
+            return answer;
+        }
+    }
+    return answer;
 }
