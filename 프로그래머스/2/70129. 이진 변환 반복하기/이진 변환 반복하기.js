@@ -1,11 +1,10 @@
 function solution(s) {
-    let [cnt, zeroCnt] = [0, 0];
+    let [cntRepeat, cnt0] = [0, 0];
     while (s !== "1") {
-        zeroCnt += s.split("").filter((x) => x === "0").length;
-        const str = s.replaceAll("0", "");
-        s = parseInt(str.length).toString(2);
-        cnt++;
-    } 
-    
-    return [cnt, zeroCnt];
+        cnt0 += s.replaceAll("1", "").length;
+        s = s.replaceAll("0", "");
+        s = Number(s.length).toString(2);
+        cntRepeat++;
+    }
+    return [cntRepeat, cnt0];
 }
