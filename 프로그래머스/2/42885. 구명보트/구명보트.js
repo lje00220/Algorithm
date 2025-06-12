@@ -1,14 +1,13 @@
 function solution(people, limit) {
     let answer = 0;
-    people.sort((a, b) => a - b);
-    while (people.length > 0) {
-        if (people[0] + people[people.length - 1] <= limit) {
-            people.pop();
-            people.shift();
-        } else {
-            people.pop();
+    let [left, right] = [0, people.length - 1]
+    people.sort((a, b) => b - a);
+    while (left <= right) {
+        if (people[left] + people[right] <= limit) {
+            right--;
         }
         answer++;
+        left++;
     }
     return answer;
 }
