@@ -1,11 +1,13 @@
 function solution(s) {
+    let arr = s.split("")
     const stack = [];
-    for (let i = 0; i < s.length; i++) {
-        if (stack.length === 0 || stack[stack.length - 1] !== s[i]) {
-            stack.push(s[i]);
-        } else {
+    for (let char of s) {
+        if (stack.length > 0 && stack[stack.length - 1] === char) {
             stack.pop();
+        } else {
+            stack.push(char);
         }
     }
+
     return stack.length === 0 ? 1 : 0;
 }
