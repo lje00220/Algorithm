@@ -1,12 +1,13 @@
 function solution(citations) {
-    const answer = [];
-    citations = citations.sort((a, b) => a - b);
-    for (let i = 0; i <= citations[citations.length - 1]; i++) {
+    citations.sort((a, b) => a - b);
+    let answer = 0;
+    for (let i = 0; i <= 10000; i++) {
         let cnt = 0;
-        for (let j = 0; j < citations.length; j++) {
-            if (citations[j] >= i) cnt++;
+        for (let elem of citations) {
+            if (elem >= i) cnt++;
         }
-        if (cnt >= i) answer.push(i);
+        
+        if (cnt >= i) answer = i;
     }
-    return Math.max(...answer);
+    return answer;
 }
