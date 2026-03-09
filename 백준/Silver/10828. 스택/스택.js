@@ -1,39 +1,61 @@
-let input = require("fs").readFileSync("/dev/stdin").toString().split("\n");
-
-const stack = [];
-
-let answer = "";
-
-for (let i = 1; i < input.length; i++) {
-  if (input[i].includes("push")) {
-    const [order, n] = input[i].split(" ");
-    stack.push(n);
+class Stack {
+  constructor() {
+    this.array = [];
+    this.length = 0;
+    this.answer = [];
   }
-
-  if (input[i] === "pop") {
-    if (stack.length === 0) {
-      answer += "-1" + "\n";
+  push(value) {
+    this.array.push(value);
+    this.length++;
+  }
+  printSize() {
+    this.answer.push(this.length);
+  }
+  isEmpty() {
+    this.answer.push(this.length === 0 ? 1 : 0);
+  }
+  pop() {
+    if (this.length <= 0) {
+      this.answer.push(-1);
     } else {
-      const popNum = stack.pop();
-      answer += popNum + "\n";
+      this.answer.push(this.array.pop());
+      this.length--;
     }
   }
-
-  if (input[i] === "size") {
-    answer += stack.length + "\n";
-  }
-
-  if (input[i] === "empty") {
-    answer += +(stack.length === 0) + "\n";
-  }
-
-  if (input[i] === "top") {
-    if (stack.length === 0) {
-      answer += "-1" + "\n";
+  top() {
+    if (this.length <= 0) {
+      this.answer.push(-1);
     } else {
-      answer += stack[stack.length - 1] + "\n";
+      this.answer.push(this.array[this.length - 1]);
     }
   }
 }
 
-console.log(answer);
+const fs = require("fs");
+const input = fs.readFileSync(0).toString().trim().split("\n");
+
+const commands = input.slice(1);
+const stack = new Stack();
+
+for (let command of commands) {
+  const [action, value] = command.split(" ");
+  switch (action) {
+    case "push":
+      stack.push(value);
+      break;
+    case "pop":
+      stack.pop();
+      break;
+    case "size":
+      stack.printSize();
+      break;
+    case "empty":
+      stack.isEmpty();
+      break;
+    case "top":
+      stack.top();
+      break;
+  }
+}
+
+console.log(stack.answer.join("\n"));
